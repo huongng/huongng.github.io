@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600');
+
+/**********************************
+Vars
+***********************************/
+
+$green: #878E88;
+$sun: #FFFE52;
+$white: #FFF;
+$xsmall: 575px;
+$small: 576px;
+$medium: 768px;
+$large: 992px;
+$xlarge: 1200px;
+
+/**********************************
+Mixins
+***********************************/
+
+@mixin translateY($e) {
+  -webkit-transform: translateY($e);
+  -moz-transform: translateY($e);
+  transform: translateY($e);
+}
+
+@mixin transition($e) {
+  -webkit-transition: $e;
+  -moz-transition: $e;
+  transition: $e;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;  
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin animation($animate...) {
+  $max: length($animate);
+  $animations: '';
+  @for $i from 1 through $max {
+    $animations: #{$animations + nth($animate, $i)};
+
+    @if $i < $max {
+      $animations: #{$animations + ", "};
+    }
+  }
+  -webkit-animation: $animations;
+  animation: $animations;
+}
+
+@mixin keyframes($animation) {
+  @keyframes #{$animation} {
+    @content;
+  }
+  @-webkit-keyframes #{$animation} {
+    @content;
+  }
+}
+
+@mixin background-linear($direction, $color-stops...) {
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
+
+@mixin xsmall {
+  @media (max-width: #{$xsmall}) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media (min-width: #{$small}) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media (min-width: #{$medium}) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: #{$large}) {
+    @content;
+  }
+}
+
+@mixin xlarge {
+  @media (min-width: #{$xlarge}) {
+    @content;
+  }
+}
+
+/**********************************
+Elements
+***********************************/
+
+body {
+  font-family: 'Source Code Pro', monospace;
+  background-color: whitesmoke;
+}
+
+a {
+  text-decoration: none;
+  @include transition(.4s ease-in-out);
+  &:hover {
+    color: #878E88;
+    @include transition(.4s ease-in-out);
+  }
+}

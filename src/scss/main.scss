@@ -1,0 +1,219 @@
+@import "bootstrap";
+@import "_config";
+
+header {
+  margin-top: 30px;
+  margin-bottom: 50px;
+
+  .h1 {
+    font-size: 4.5em;
+    font-style: black;
+  }
+
+  nav {
+    a {
+      color: inherit;
+    }
+  }
+}
+
+#main-content {
+  @include keyframes(huong) {
+    0%, 50%, 100% {opacity: 1;}
+  	25%, 75% {opacity: 0.6;transform: scale3d(.3, .3, .3);-webkit-transform: scale3d(.3, .3, .3);}
+  }
+
+  .galaxy-circle {
+    @include border-radius(50%);
+    @include background-linear(to top right, #5c258d, #336b7e);
+    @include small {
+      width: 350px;
+      height: 350px;
+    }
+    @include large {
+      width: 400px;
+      height: 400px;
+    }
+    box-shadow: 0 0 15px #336b7e;
+    margin: 0 auto 0;
+  }
+  .sun {
+    @include border-radius(50%);
+    @include small {
+      width: 150px;
+      height: 150px;
+      margin-left: 200px;
+    }
+    @include large {
+      width: 200px;
+      height: 200px;
+      margin-left: 450px;      
+    }
+    background-color: $sun;
+    position: absolute;
+    top: 50px;
+    margin-top: 100px;
+    box-shadow: 1px 1px 40px 15px $sun;
+  }
+
+  .star{
+    width: 5px;
+    height: 5px;
+    @include border-radius(50%);
+    background-color: $white;
+    position: absolute;
+    box-shadow: 0 0 20px $white;
+  }
+
+  #star1{
+    width: 4px;
+      height: 4px;
+    margin-left: 200px;
+    margin-top: 50px;
+    background-color: #BEBEBE;
+    @include animation('huong 3s infinite');
+  }
+  
+  #star2{
+    width: 10px;
+      height: 10px;
+    margin-left: 50px;
+    margin-top: 100px;
+    @include animation('huong 2.7s infinite');
+  }
+  
+  #star3{
+    width: 6px;
+    height: 6px;
+    margin-left: 150px;
+    margin-top: 120px;
+    @include animation('huong 3.3s infinite');
+  }
+  
+  #star4{
+    width: 15px;
+    height: 15px;
+    margin-left: 290px;
+    margin-top: 90px;
+    background-color: #FFDCA8;
+    @media screen and (max-width: $xsmall) {
+      background-color: #f7c479;
+    }
+    @include animation('huong 2.5s infinite');
+  }
+  
+  #star5{
+    width: 7px;
+    height: 7px;
+    margin-left: 80px;
+    margin-top: 180px;
+    background-color: #9EA9C8;
+    @media screen and (max-width: $xsmall) {
+      background-color: #838daa;
+    }
+    @include animation('huong 5s infinite');
+  }
+  
+  #star6{
+    margin-left: 290px;
+    margin-top: 230px;
+    background-color: #B3E1C6;
+    @media screen and (max-width: $xsmall) {
+      background-color: #5e79c1;
+    }
+    @include animation('huong 1s infinite');
+  }
+  
+  #star7{
+    width: 4px;
+    height: 4px;
+    margin-left: 350px;
+    margin-top: 150px;
+    background-color: #BE9EC8;
+    @media screen and (max-width: $xsmall) {
+      background-color: #9a6da8;
+    }
+    @include animation('huong 2.6s infinite');
+  }
+  
+  #star8{
+    width: 8px;
+    height: 8px;
+    margin-left: 230px;
+    margin-top: 170px;
+    background-color: #FFCBC2;
+    @media screen and (max-width: $xsmall) {
+      background-color: #eda497;
+    }
+    @include animation('huong 4s infinite');
+  }
+  
+  #star9{
+    width: 13px;
+    height:13px;
+    margin-left: 160px;
+    margin-top: 250px;
+    background-color: #F6F5A3;
+    @media screen and (max-width: $xsmall) {
+      background-color: #e5e479;
+    }
+    @include animation('huong 3.2s infinite');
+  }
+  
+  #star10{
+    width: 4px;
+    height: 4px;
+    margin-left: 270px;
+    margin-top: 310px;
+    background-color: #DFBCFF;
+    @include animation('huong 1.8s infinite');
+  }
+  
+  #star11{
+    width: 20px;
+    height:20px;
+    margin-left: 340px;
+    margin-top: 270px;
+    background-color: #BDFFE6;
+    @media screen and (max-width: $xsmall) {
+      background-color: #8cceb5;
+    }
+    @include animation('huong 2.3s infinite');
+  }
+  
+  #star12{
+    width: 8px;
+    height:8px;
+    margin-left: 190px;
+    margin-top: 350px;
+    background-color: #CCF7FF;
+    @include animation('huong 5s infinite');
+  }
+}
+
+#journal-content {
+  padding-left: 15px;
+}
+#journal-overview {
+  padding-left: 15px;
+  margin-right: 350px;
+  margin-bottom: 100px;
+}
+.journal-item {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+}
+.u-border {
+  position: relative;
+}
+.u-border--top::before {
+  top: 0;
+}
+.u-border::before {
+  content: "";
+  background-color: currentColor;
+  opacity: .1;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+}
